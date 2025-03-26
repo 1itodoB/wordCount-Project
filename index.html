@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            resize: none;
+        }
+        .counter {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center mb-3">Word Count App</h2>
+        <textarea id="textInput" class="form-control" placeholder="Type your text here..."></textarea>
+        <div class="counter">
+            <span>Words: <span id="wordCount">0</span></span>
+            <span>Characters: <span id="charCount">0</span></span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("textInput").addEventListener("input", function () {
+            let text = this.value.trim(); // Get text and remove extra spaces
+            let words = text.length > 0 ? text.split(/\s+/).length : 0;
+            let characters = text.length;
+
+            document.getElementById("wordCount").textContent = words;
+            document.getElementById("charCount").textContent = characters;
+        });
+    </script>
+
+</body>
+</html>
